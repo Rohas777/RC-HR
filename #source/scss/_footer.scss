@@ -1,0 +1,287 @@
+.footer {
+    padding: 90px 60px 40px 60px;
+    border-radius: 50px 50px 0px 0px;
+    background-color: $BLACK;
+    color: #fff;
+    @media only screen and (max-width: 1080px) {
+        padding: 90px 20px 40px;
+    }
+    @media only screen and (max-width: 720px) {
+        padding: 90px 0 40px;
+    }
+
+    &__content {
+        width: 100%;
+        @include flexbox();
+        gap: 120px;
+        margin: 0px auto;
+        @media only screen and (max-width: 1439px) {
+            gap: 60px;
+        }
+        @media only screen and (max-width: 1080px) {
+            flex-direction: column;
+        }
+        @media only screen and (max-width: 720px) {
+            width: calc(100% - 20px);
+            padding: 0 10px;
+        }
+    }
+
+    &__media {
+        @include flexbox();
+        flex-direction: column;
+        justify-content: space-between;
+        @media only screen and (max-width: 1080px) {
+            flex-direction: row;
+            align-items: center;
+        }
+        @media only screen and (max-width: 540px) {
+            flex-direction: column;
+            align-items: start;
+            gap: 30px;
+        }
+    }
+
+    &__company {
+    }
+
+    &__logo {
+        margin-bottom: 5px;
+        @media only screen and (max-width: 720px) {
+            width: 120px;
+            height: 38px;
+            margin-bottom: 10px;
+        }
+    }
+
+    &__subtitle {
+        font-size: 21px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 160%;
+        @media only screen and (max-width: 720px) {
+            font-size: 18px;
+        }
+    }
+
+    &__social {
+        @include flexbox();
+        gap: 20px;
+
+        svg {
+            width: 52px;
+            height: 52px;
+
+            path {
+                fill: #fff;
+            }
+        }
+    }
+
+    &__other {
+        @include flexbox();
+        gap: 120px;
+        @media only screen and (max-width: 1439px) {
+            gap: 60px;
+        }
+        @media only screen and (max-width: 1080px) {
+            justify-content: space-between;
+        }
+        @media only screen and (max-width: 720px) {
+            gap: 20px;
+        }
+        @media only screen and (max-width: 540px) {
+            flex-direction: column;
+            gap: 40px;
+        }
+    }
+
+    &__nav {
+        @media only screen and (max-width: 720px) {
+            width: calc(50% - 10px);
+        }
+        @media only screen and (max-width: 540px) {
+            width: 100%;
+        }
+    }
+
+    &__title {
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: normal;
+        text-transform: uppercase;
+        margin-bottom: 40px;
+    }
+
+    &__links {
+        @include flexbox();
+        gap: 100px;
+        margin-bottom: 30px;
+        @media only screen and (max-width: 1439px) {
+            gap: 70px;
+        }
+        @media only screen and (max-width: 720px) {
+            flex-direction: column;
+            gap: 20px;
+        }
+        @media only screen and (max-width: 720px) {
+            margin-bottom: 0;
+        }
+    }
+
+    &__links-column {
+        @include flexbox();
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    &__link {
+        color: $LIGHT_GRAY;
+        position: relative;
+        font-size: 21px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 104.762%;
+        @include anim(all, 300ms, ease-out, 0s);
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: -18px;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: $YELLOW;
+            opacity: 0;
+            @include anim(opacity, 300ms, ease-out, 0s);
+        }
+
+        &:hover {
+            text-decoration: underline;
+            color: $YELLOW;
+
+            &::before {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__up {
+        width: 48px;
+        height: 48px;
+        border: 2px solid $YELLOW;
+        border-radius: 50%;
+        @include flexbox();
+        align-items: center;
+        justify-content: center;
+        margin: 0px auto;
+        background-color: transparent;
+        cursor: pointer;
+        @include anim(all, 300ms, ease-out, 0s);
+        svg {
+            path {
+                @include anim(all, 300ms, ease-out, 0s);
+            }
+        }
+
+        &:hover {
+            background-color: $YELLOW;
+
+            svg {
+                path {
+                    fill: $BLACK;
+                }
+            }
+        }
+
+        &_nav {
+            @media only screen and (max-width: 720px) {
+                display: none;
+            }
+        }
+
+        &_other {
+            display: none;
+            @media only screen and (max-width: 720px) {
+                @include flexbox();
+            }
+        }
+    }
+
+    &__contact-info {
+        @include flexbox();
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 30px;
+        @media only screen and (max-width: 720px) {
+            width: calc(50% - 10px);
+        }
+        @media only screen and (max-width: 540px) {
+            width: 100%;
+        }
+    }
+
+    &__contacts {
+    }
+
+    &__contact {
+        margin-bottom: 20px;
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+
+        span {
+            color: $YELLOW;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 137.5%;
+            margin-bottom: 5px;
+        }
+        p {
+            color: $LIGHT_GRAY;
+            font-size: 21px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            text-decoration-line: underline;
+        }
+    }
+
+    &__policy {
+        color: $YELLOW !important;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 137.5%;
+        text-decoration-line: underline !important;
+    }
+
+    &__separator {
+        width: 100%;
+        height: 1px;
+        background-color: #fff;
+        margin-top: 40px;
+        margin-bottom: 20px;
+    }
+
+    &__copyright {
+        @include flexbox();
+        align-items: center;
+        justify-content: center;
+        color: $LIGHT_GRAY;
+        text-align: center;
+        font-family: Ubuntu;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 157.143%;
+        @media only screen and (max-width: 540px) {
+            font-size: 12px;
+        }
+    }
+}

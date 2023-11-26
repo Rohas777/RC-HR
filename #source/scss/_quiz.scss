@@ -1,0 +1,405 @@
+.quiz {
+    border-radius: 50px;
+    background-color: $BLACK;
+    width: 1096px;
+    padding: 30px;
+    color: #fff;
+    height: 564px;
+
+    @media only screen and (max-width: 1439px) {
+        width: 940px;
+    }
+    @media only screen and (max-width: 1024px) {
+        width: 100%;
+        height: 556px;
+    }
+    @media only screen and (max-width: 480px) {
+        padding: 30px 0;
+        height: 694px;
+    }
+
+    &__title {
+        width: 100%;
+        text-align: center;
+        font-size: 48px;
+        font-style: normal;
+        font-weight: 900;
+        line-height: normal;
+        text-transform: uppercase;
+        margin-bottom: 40px;
+        @media only screen and (max-width: 1024px) {
+            font-size: 32px;
+        }
+        @media only screen and (max-width: 480px) {
+            width: auto;
+            font-size: 24px;
+            padding: 0 10px;
+        }
+    }
+
+    &__content {
+        position: fixed;
+        width: calc(100% - 60px);
+        height: 404px;
+        opacity: 1;
+
+        @include flexbox();
+        flex-direction: column;
+        justify-content: space-between;
+        @include anim(opacity, 300ms, ease-out, 0s);
+        @media only screen and (max-width: 480px) {
+            width: 100%;
+            padding: 0 10px;
+        }
+        @media only screen and (max-width: 1024px) {
+            height: 416px;
+        }
+        @media only screen and (max-width: 480px) {
+            height: 534px;
+        }
+
+        &.disable {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        &[data-question-number="1"] {
+            .quiz__loader {
+                &::before {
+                    width: calc((100% / 7) * 1);
+                }
+            }
+        }
+        &[data-question-number="2"] {
+            .quiz__loader {
+                &::before {
+                    width: calc((100% / 7) * 2);
+                }
+            }
+        }
+        &[data-question-number="3"] {
+            .quiz__loader {
+                &::before {
+                    width: calc((100% / 7) * 3);
+                }
+            }
+        }
+        &[data-question-number="4"] {
+            .quiz__loader {
+                &::before {
+                    width: calc((100% / 7) * 4);
+                }
+            }
+        }
+        &[data-question-number="5"] {
+            .quiz__loader {
+                &::before {
+                    width: calc((100% / 7) * 5);
+                }
+            }
+        }
+        &[data-question-number="6"] {
+            .quiz__loader {
+                &::before {
+                    width: calc((100% / 7) * 6);
+                }
+            }
+        }
+        &[data-question-number="7"] {
+            .quiz__loader {
+                &::before {
+                    width: calc((100% / 7) * 7);
+                }
+            }
+        }
+    }
+
+    &__head {
+        width: 100%;
+        text-align-last: left;
+    }
+
+    &__counter {
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        margin-bottom: 20px;
+        @media only screen and (max-width: 1024px) {
+            font-size: 24px;
+        }
+        @media only screen and (max-width: 480px) {
+            font-size: 21px;
+        }
+    }
+
+    &__loader {
+        display: block;
+        height: 10px;
+        background-color: $LIGHT_GRAY;
+        position: relative;
+        margin-bottom: 60px;
+        border-radius: 10px;
+        overflow: hidden;
+        @media only screen and (max-width: 1024px) {
+            margin-bottom: 40px;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            background-color: $YELLOW;
+            // width: calc((100% / 7) * 1);
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+    }
+
+    &__body {
+    }
+
+    &__question {
+        height: 180px;
+    }
+
+    &__legend {
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin-bottom: 30px;
+        @media only screen and (max-width: 1024px) {
+            font-size: 21px;
+            margin-bottom: 20px;
+        }
+        @media only screen and (max-width: 480px) {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+    }
+
+    &__text-inputs {
+        @include flexbox();
+        gap: 20px;
+        margin-bottom: 20px;
+        @media only screen and (max-width: 1024px) {
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+
+    &__text-input {
+        position: relative;
+        width: calc(50% - 10px);
+        @media only screen and (max-width: 1024px) {
+            width: 100%;
+        }
+
+        input {
+            width: 100%;
+            padding: 20px;
+            border-radius: 50px;
+            background-color: #fff;
+            color: $BLACK;
+            font-size: 21px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            @media only screen and (max-width: 1024px) {
+                font-size: 18px;
+            }
+            @media only screen and (max-width: 480px) {
+                font-size: 16px;
+            }
+
+            &::placeholder {
+                opacity: 0.5;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+                @media only screen and (max-width: 480px) {
+                    font-size: 14px;
+                }
+            }
+        }
+
+        svg {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+        }
+
+        &_tel {
+            position: relative;
+
+            span {
+                position: absolute;
+                width: 26px;
+                height: 26px;
+                top: 49%;
+                left: 20px;
+                transform: translateY(-50%);
+                color: $BLACK;
+                font-family: Mulish;
+                font-size: 21px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+            }
+
+            input {
+                padding-left: 51px;
+            }
+        }
+    }
+
+    &__checkboxes {
+        @include flexbox();
+        width: 100%;
+        gap: 30px;
+
+        @media only screen and (max-width: 480px) {
+            flex-direction: column;
+            gap: 20px;
+        }
+    }
+
+    &__checkboxes-column {
+        @include flexbox();
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+    }
+
+    &__check {
+        font-size: 21px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        cursor: pointer;
+        display: block;
+        position: relative;
+        padding-left: 40px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        @media only screen and (max-width: 1024px) {
+            font-size: 16px;
+        }
+
+        a {
+            color: $YELLOW;
+            font-size: 21px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            text-decoration-line: underline;
+            @media only screen and (max-width: 1024px) {
+                font-size: 16px;
+            }
+        }
+
+        .checkmark {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+            height: 24px;
+            width: 24px;
+            background-color: transparent;
+            border-radius: 5px;
+            border: 1px solid $YELLOW;
+            @include flexbox();
+            align-items: center;
+            justify-content: center;
+            @include anim(all, 300ms, ease-out, 0s);
+        }
+
+        input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+
+            &:checked ~ .checkmark {
+                background-color: $YELLOW;
+            }
+        }
+    }
+
+    &__buttons {
+        @include flexbox();
+        justify-content: space-between;
+        align-items: center;
+
+        color: $BLACK;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        @media only screen and (max-width: 480px) {
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+
+    &__final {
+        height: 100%;
+        @include flexbox();
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        @media only screen and (max-width: 1024px) {
+            gap: 10px;
+        }
+    }
+
+    &__final-title {
+        color: #fff;
+        text-align: center;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: normal;
+        width: 100%;
+        height: auto;
+        @media only screen and (max-width: 1024px) {
+            font-size: 24px;
+        }
+        @media only screen and (max-width: 480px) {
+            font-size: 21px;
+        }
+    }
+    &__final-paragraph {
+        color: $LIGHT_GRAY;
+        text-align: center;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        @media only screen and (max-width: 1024px) {
+            font-size: 18px;
+        }
+        @media only screen and (max-width: 480px) {
+            font-size: 16px;
+        }
+    }
+
+    &__back {
+        @media only screen and (max-width: 480px) {
+            width: 100%;
+        }
+    }
+
+    &__next {
+        @media only screen and (max-width: 480px) {
+            width: 100%;
+        }
+    }
+}
