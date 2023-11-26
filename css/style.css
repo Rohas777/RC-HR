@@ -720,7 +720,6 @@ h6 {
   pointer-events: auto;
 }
 .menu__container {
-  height: 100%;
   display: flex;
   justify-content: center;
   position: relative;
@@ -842,7 +841,7 @@ h6 {
 @media only screen and (max-width: 1024px) {
   .menu__emblem {
     right: 50%;
-    bottom: -60px;
+    bottom: 0;
     transform: translate(50%, 100%);
   }
   .menu__emblem img {
